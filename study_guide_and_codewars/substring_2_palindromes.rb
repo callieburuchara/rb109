@@ -1,4 +1,4 @@
-require 'pry'
+# Chris says this question is given a lot in interview screenings
 
 def substring(str, num1, num2 = nil)
   return str[num1] if num2 == nil
@@ -19,5 +19,13 @@ def substrings(str)
   result
 end
 
+def palindromes(str)
+  substrings(str).select {|sub| sub == sub.reverse}
+end
 
-p substrings('band')
+
+def longest_palindrome(str)
+  palindromes(str).max_by(&:length)
+end
+
+p longest_palindrome('ppop')
